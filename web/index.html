@@ -17,6 +17,7 @@
           if (file.name == ".gitmodules" || file.name == "index.html" || file.name == "nastajus_site_theme.css") { continue; }
           directorySlash = (file.type == "dir") ? "/" : "";
           htmlString += `<li><a href="${file.path}">${file.name}${directorySlash}</a></li>`;
+          debug.log(file.path, file.name);
         }
         htmlString += '</ul>';
         document.getElementsByTagName('body')[0].innerHTML = htmlString;
