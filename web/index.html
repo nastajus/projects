@@ -19,7 +19,6 @@
           const lastPathPart = file.path.split("/").pop();
           const pathToUse = (Array.isArray(lastPathPart)) ? lastPathPart : file.path;
           htmlString += `<li><a href="${lastPathPart}">${file.name}${directorySlash}</a></li>`;
-          console.log(file.path, file.name, lastPathPart);
         }
         htmlString += '</ul>';
         document.getElementsByTagName('body')[0].innerHTML = htmlString;
