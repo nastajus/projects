@@ -1,0 +1,3 @@
+[submodule "web/plotter"]
+	path = web/plotter
+	url = https://github.com/nastajus/javascriptApp5-canvas.git
