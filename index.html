@@ -14,9 +14,9 @@
         const data = await response.json();
         let htmlString = '<ul>';
         for (let file of data) {
-          if (file.name == ".gitmodules" || file.name == "index.html") { continue; }
-          htmlString += `<li><a href="${file.path}">${file.name}</a></li>`;
-          if (file.type == "dir") { htmlString += "/"; } 
+          if (file.name == ".gitmodules" || file.name == "index.html" || file.name == "nastajus_site_theme.css") { continue; }
+          directorySlash = (file.type == "dir") ? "/" : "";
+          htmlString += `<li><a href="${file.path}">${file.name}${directorySlash}</a></li>`;
         }
         htmlString += '</ul>';
         document.getElementsByTagName('body')[0].innerHTML = htmlString;
