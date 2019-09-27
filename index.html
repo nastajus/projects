@@ -15,8 +15,11 @@
         let htmlString = '<ul>';
         for (let file of data) {
           if (file.name == ".gitmodules" || file.name == "index.html" || file.name == "nastajus_site_theme.css") { continue; }
-          directorySlash = (file.type == "dir") ? "/" : "";
-          htmlString += `<li><a href="${file.path}">${file.name}${directorySlash}</a></li>`;
+          const directorySlash = (file.type == "dir") ? "/" : "";
+          const lastPathPart = file.path.split("/").pop();
+          const pathToUse = (Array.isArray(lastPathPart)) ? lastPathPart : file.path;
+          htmlString += `<li><a href="${lastPathPart}">${file.name}${directorySlash}</a></li>`;
+          console.log(file.path, file.name, lastPathPart);
         }
         htmlString += '</ul>';
         document.getElementsByTagName('body')[0].innerHTML = htmlString;
